@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 #    sesuaikan dengan nama project anda
-    RewriteBase /beacukai/
+    RewriteBase /manhattan/
 
     RewriteCond %{REQUEST_URI} ^system.*
     RewriteRule ^(.*)$ /index.php?/$1 [L]

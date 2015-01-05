@@ -63,20 +63,29 @@
                     <div class="span6">
                         <div id="myCarousel" class="carousel slide">
                             <ol class="carousel-indicators">
-                              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                              <li data-target="#myCarousel" data-slide-to="1"></li>
-                              <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <?php 
+                                $i_slider = 0;
+                                foreach ($slide as $row_slider) {
+                                ?>
+                                <li data-target="#myCarousel" data-slide-to="<?php echo $i_slider; ?>" <?php echo $i_slider==0?'class="active"':'' ?>></li>
+                                <?php 
+                                $i_slider++;
+                                }
+                                ?>
                             </ol>
                             <div class="carousel-inner">
-                              <div class="item active">
-                                  <img style="height: 223px; width: 100%" src="<?php echo base_url('upload/slide/cc.gif'); ?>" alt="">
-                              </div>
-                              <div class="item">
-                                  <img style="height: 223px; width: 100%" src="<?php echo base_url('upload/slide/kurs.gif'); ?>" alt="">
-                              </div>
-                              <div class="item">
-                                  <img style="height: 223px; width: 100%" src="<?php echo base_url('upload/slide/gedung.gif'); ?>" alt="">
-                              </div>
+                                <?php 
+                                $i_slide = 1;
+                                foreach ($slide as $row_slide) {
+                                $src_slide = 'upload/slide/'.$row_slide->namafile;
+                                ?>
+                                <div class="item <?php echo $i_slide==1?'active':''; ?>">
+                                    <img style="height: 223px; width: 100%" src="<?php echo base_url($src_slide); ?>" alt="<?php echo $row_slide->namafile ?>">
+                                </div>
+                                <?php 
+                                $i_slide++;
+                                }
+                                ?>
                             </div>
                             <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
                             <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
@@ -93,12 +102,13 @@
                             <div id="operplow" style="height: 100px; overflow: auto" class="card-body" data-mcs-theme="minimal-dark">
                                 <ul style="margin-left: 15px">
                                     <?php 
-                                    foreach ($kiriman as $row_kiriman) {
+                                    foreach ($berita as $row_berita) {
                                     $judul = 'judul_'.$this->session->userdata('language');
+                                    $slug_url = 'berita/berita/baca/'.$row_berita->slug;
                                     ?>
                                     <li>
-                                        <a style="color: #444" href="<?php echo site_url('kiriman/kiriman_pos'); ?>">
-                                            <?php echo $row_kiriman->$judul ?>
+                                        <a style="color: #444" href="<?php echo site_url($slug_url) ?>">
+                                            <?php echo $row_berita->$judul ?>
                                         </a>
                                     </li>
                                     <?php 
@@ -117,20 +127,29 @@
                     <div class="span12">
                         <div id="myCarousel2" class="carousel slide">
                             <ol class="carousel-indicators">
-                              <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-                              <li data-target="#myCarousel2" data-slide-to="1"></li>
-                              <li data-target="#myCarousel2" data-slide-to="2"></li>
+                                <?php 
+                                $i_slider = 0;
+                                foreach ($slide as $row_slider) {
+                                ?>
+                                <li data-target="#myCarousel2" data-slide-to="<?php echo $i_slider; ?>" <?php echo $i_slider==0?'class="active"':'' ?>></li>
+                                <?php 
+                                $i_slider++;
+                                }
+                                ?>
                             </ol>
                             <div class="carousel-inner">
-                              <div class="item active">
-                                  <img style="height: 223px; width: 100%" src="<?php echo base_url('upload/slide/kapal.jpg'); ?>" alt="">
-                              </div>
-                              <div class="item">
-                                  <img style="height: 223px; width: 100%" src="<?php echo base_url('upload/slide/kimia.jpg'); ?>" alt="">
-                              </div>
-                              <div class="item">
-                                  <img style="height: 223px; width: 100%" src="<?php echo base_url('upload/slide/kpdjbc.jpg'); ?>" alt="">
-                              </div>
+                                <?php 
+                                $i_slide = 1;
+                                foreach ($slide as $row_slide) {
+                                $src_slide = 'upload/slide/'.$row_slide->namafile;
+                                ?>
+                                <div class="item <?php echo $i_slide==1?'active':''; ?>">
+                                    <img style="height: 223px; width: 100%" src="<?php echo base_url($src_slide); ?>" alt="<?php echo $row_slide->namafile ?>">
+                                </div>
+                                <?php 
+                                $i_slide++;
+                                }
+                                ?>
                             </div>
                             <a class="left carousel-control" href="#myCarousel2" data-slide="prev">&lsaquo;</a>
                             <a class="right carousel-control" href="#myCarousel2" data-slide="next">&rsaquo;</a>
@@ -149,12 +168,13 @@
                             <div class="card-body" data-mcs-theme="minimal-dark">
                                 <ul style="margin-left: 15px">
                                     <?php 
-                                    foreach ($kiriman as $row_kiriman) {
+                                    foreach ($berita as $row_berita) {
                                     $judul = 'judul_'.$this->session->userdata('language');
+                                    $slug_url = 'berita/berita/baca/'.$row_berita->slug;
                                     ?>
                                     <li>
-                                        <a style="color: #444" href="<?php echo site_url('kiriman/kiriman_pos'); ?>">
-                                            <?php echo $row_kiriman->$judul ?>
+                                        <a style="color: #444" href="<?php echo site_url($slug_url) ?>">
+                                            <?php echo $row_berita->$judul ?>
                                         </a>
                                     </li>
                                     <?php 
@@ -169,7 +189,7 @@
                     </div>
                 </div>
                 
-                <!--berita-->
+                <!--personal-->
                 <div class="row-fluid">
                     <div class="span6">
                         <ul class="nav nav-tabs" id="myTab">
@@ -177,65 +197,57 @@
                             <li><a href="#profile"><i class="fa fa-cube"></i> <?php echo $this->lang->line('nav_kiriman'); ?></a></li>
                             <li><a href="#messages"><i class="fa fa-car"></i> <?php echo $this->lang->line('nav_pelintas'); ?></a></li>
                         </ul>
-
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="home">
-                                Apakah barang penumpang ? <br>
-                                Bagaimana prosedur barang penumpang ? <br>
+                        <div id="operplow2" style="height: 210px; overflow: auto">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home">
+                                    <ul style="margin-left: 15px">
+                                        <?php 
+                                        foreach ($penumpang as $row_penumpang) {
+                                        $judul = 'judul_'.$this->session->userdata('language');
+                                        ?>
+                                        <li>
+                                            <a style="color: #444" href="<?php echo site_url('kiriman/kiriman_pos'); ?>">
+                                                <?php echo $row_penumpang->$judul ?>
+                                            </a>
+                                        </li>
+                                        <?php 
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" id="profile">
+                                    <ul style="margin-left: 15px">
+                                        <?php 
+                                        foreach ($kiriman as $row_kiriman) {
+                                        $judul = 'judul_'.$this->session->userdata('language');
+                                        ?>
+                                        <li>
+                                            <a style="color: #444" href="<?php echo site_url('kiriman/kiriman_pos'); ?>">
+                                                <?php echo $row_kiriman->$judul ?>
+                                            </a>
+                                        </li>
+                                        <?php 
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" id="messages">
+                                    <ul style="margin-left: 15px">
+                                        <?php 
+                                        foreach ($pelintas as $row_pelintas) {
+                                        $judul = 'judul_'.$this->session->userdata('language');
+                                        ?>
+                                        <li>
+                                            <a style="color: #444" href="<?php echo site_url('kiriman/kiriman_pos'); ?>">
+                                                <?php echo $row_pelintas->$judul ?>
+                                            </a>
+                                        </li>
+                                        <?php 
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="tab-pane" id="profile">
-                                Apakah barang kiriman ? <br>
-                                Bagaimana prosedur barang kiriman ? 
-                            </div>
-                            <div class="tab-pane" id="messages">
-                                Apakah barang pelintas batas ? <br>
-                                Bagaimana prosedur barang pelintas batas ? 
-                            </div>
-                            <div class="tab-pane" id="settings">...</div>
-                        </div>
-                        
-                        <table width="100%">
-                            <?php 
-                            foreach ($berita as $row_berita) {
-                            $judul = 'judul_'.$this->session->userdata('language');
-                            $slug_url = 'berita/berita/baca/'.$row_berita->slug;
-                            ?>
-                            <tr>
-                                <td>
-                                    <a style="color: #444" href="<?php echo site_url($slug_url) ?>">
-                                        <?php echo $row_berita->$judul ?>
-                                    </a>
-                                </td>
-                            </tr>
-                            <?php 
-                            }
-                            ?>
-                        </table>
-
-                        <div class="judul4">
-                            <strong><i class="fa fa-bullhorn"></i> <?php echo $this->lang->line('nav_pengumuman'); ?></strong>
-                            <div class="pull-right text-right">
-                                <a href="<?php echo site_url('berita/pengumuman'); ?>"><small><?php echo $this->lang->line('main_index'); ?></small></a>
-                            </div>
-                        </div>
-                        <div class="isi_juddul4">
-                            <table width="100%">
-                                <?php 
-                                foreach ($pengumuman as $row_pengumuman) {
-                                $judul = 'judul_'.$this->session->userdata('language');
-                                $slug_url = 'berita/pengumuman/baca/'.$row_pengumuman->slug;
-                                ?>
-                                <tr>
-                                    <td>
-                                        <a style="color: #444" href="<?php echo site_url($slug_url) ?>">
-                                            <?php echo $row_pengumuman->$judul ?>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <?php 
-                                }
-                                ?>
-                            </table>    
                         </div>
                     </div>
 
@@ -269,106 +281,36 @@
                     </div>
                 </div>
                 <br>
-                <div class="visible-desktop shortcut-row">
-                    <div class="row-fluid">
-                            <ul class="inline">
-                                <li class="span6" style="margin-left: 5px">
-                                    <div class="span3 shortcut-box-first">
-                                        <a target="_blank" href="http://customer.beacukai.go.id/">
-                                        <div class="shortcut-holder">
-                                            <div class="shortcut-title">
-                                                <strong><small><?php echo $this->lang->line('nav_portal_pengguna_jasa'); ?></small></strong>
-                                            </div>
-                                            <div class="shortcut-hover">
-                                                <img class="shortcut-img" src="<?php echo base_url('asset/image/shortcut/portal_pengguna_jasa.gif'); ?>"/>
-                                            </div>
-                                        </div>
-                                        </a>
-                                    </div>
-                                    <div class="span3 shortcut-box">
-                                        <a target="_blank" href="#">
-                                        <div class="shortcut-holder">
-                                            <div class="shortcut-title">
-                                                <strong><small><?php echo $this->lang->line('nav_registrasi_kepabeanan'); ?></small></strong>
-                                            </div>
-                                            <div class="shortcut-hover">
-                                                <img class="shortcut-img" src="<?php echo base_url('asset/image/shortcut/registrasi_kepabeanan.gif'); ?>"/>
-                                            </div>
-                                        </div>
-                                        </a>
-                                    </div>
-                                    <div class="span3 shortcut-box">
-                                        <a target="_blank" href="http://103.12.81.2/appreg/">
-                                        <div class="shortcut-holder">
-                                            <div class="shortcut-title">
-                                                <strong><small><?php echo $this->lang->line('nav_registrasi_ppjk'); ?></small></strong>
-                                            </div>
-                                            <div class="shortcut-hover">
-                                                <img class="shortcut-img" src="<?php echo base_url('asset/image/shortcut/registrasi_ppjk.gif'); ?>"/>
-                                            </div>
-                                        </div>
-                                        </a>
-                                    </div>
-                                    <div class="span3 shortcut-box">
-                                        <a target="_blank" href="http://peraturan.beacukai.go.id/">
-                                        <div class="shortcut-holder">
-                                            <div class="shortcut-title">
-                                                <strong><small><?php echo $this->lang->line('nav_peraturan'); ?></small></strong>
-                                            </div>
-                                            <div class="shortcut-hover">
-                                                <img class="shortcut-img" src="<?php echo base_url('asset/image/shortcut/direktori_peraturan.gif'); ?>"/>
-                                            </div>
-                                        </div>
-                                        </a>
-                                    </div>
+ 
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="judul4">
+                            <strong><i class="fa fa-bullhorn"></i> <?php echo $this->lang->line('nav_pengumuman'); ?></strong>
+                            <div class="pull-right text-right">
+                                <a href="<?php echo site_url('berita/pengumuman'); ?>"><small><?php echo $this->lang->line('main_index'); ?></small></a>
+                            </div>
+                        </div>
+                        <div class="isi_juddul4">
+                            <ul style="margin-left: 15px">
+                                <?php 
+                                foreach ($pengumuman as $row_pengumuman) {
+                                $judul = 'judul_'.$this->session->userdata('language');
+                                $slug_url = 'berita/pengumuman/baca/'.$row_pengumuman->slug;
+                                ?>
+                                <li>
+                                    <a style="color: #444" href="<?php echo site_url($slug_url) ?>">
+                                        <?php echo $row_pengumuman->$judul ?>
+                                    </a>
                                 </li>
-                                <li class="span6" style="margin-left: 5px">
-                                    <div class="span3 shortcut-box">
-                                        <div class="shortcut-holder">
-                                            <a target="_blank" href="http://eservice.insw.go.id/index.cgi?page=hs-code-information.html">
-                                            <div class="shortcut-title">
-                                                <strong><small><?php echo $this->lang->line('nav_tarif'); ?></small></strong>
-                                            </div>
-                                            <div class="shortcut-hover">
-                                                <img class="shortcut-img" src="<?php echo base_url('asset/image/shortcut/browse_tarif.gif'); ?>"/>
-                                            </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="span3 shortcut-box">
-                                        <div class="shortcut-holder">
-                                            <div class="shortcut-title">
-                                                <strong><small><?php echo $this->lang->line('nav_kurs'); ?></small></strong>
-                                            </div>
-                                            <div class="shortcut-hover">
-                                                <img class="shortcut-img" src="<?php echo base_url('asset/image/shortcut/kurs.gif'); ?>"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="span3 shortcut-box">
-                                        <div class="shortcut-holder">
-                                            <div class="shortcut-title">
-                                                <strong><small><?php echo $this->lang->line('nav_pengaduan'); ?></small></strong>
-                                            </div>
-                                            <div class="shortcut-hover">
-                                                <img class="shortcut-img" src="<?php echo base_url('asset/image/shortcut/pengaduan.gif'); ?>"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="span3 shortcut-box">
-                                        <div class="shortcut-holder">
-                                            <div class="shortcut-title">
-                                                <strong><small><?php echo $this->lang->line('nav_contact_center'); ?></small></strong>
-                                            </div>
-                                            <div class="shortcut-hover">
-                                                <img class="shortcut-img" src="<?php echo base_url('asset/image/shortcut/contact_center.gif'); ?>"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                <?php 
+                                }
+                                ?>
                             </ul>
+                        </div>
                     </div>
-                </div>
+                    <!--shortcut-->
+                    <?php $this->load->view('include/shortcut'); ?>
+               </div>
                 <br>
                 <!--eselon I-->
                 <?php $this->load->view('include/eselonI'); ?>
@@ -434,6 +376,10 @@
             (function($){
                 $(window).load(function(){
                     $("#operplow").mCustomScrollbar({
+                            scrollButtons:{enable:false},
+                            theme:"minimal-dark"
+                    });
+                    $("#operplow2").mCustomScrollbar({
                             scrollButtons:{enable:false},
                             theme:"minimal-dark"
                     });

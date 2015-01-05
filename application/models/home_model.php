@@ -10,12 +10,12 @@ class Home_model extends MY_Model
         parent::__construct();
     }
     
-    function slide($limit=4) 
+    function slide($limit=5) 
     {
         $this->db->where('publish', '1');
         $this->db->order_by('id', 'desc');
         $this->db->limit($limit);
-        return $this->db->get('berita')->result();
+        return $this->db->get('slide')->result();
     }
 
     function berita($limit=4) 
@@ -26,7 +26,7 @@ class Home_model extends MY_Model
         return $this->db->get('berita')->result();
     }
 
-    function kiriman($jenis,$limit=5)
+    function personal($jenis,$limit=5)
     {
         $this->db->where('jenis', $jenis);
         $this->db->order_by('urut', 'asc');
@@ -65,14 +65,7 @@ class Home_model extends MY_Model
         $this->db->limit(1);
         return $this->db->get('wbc')->row();
     }
-
-    function slide($limit=5) 
-    {
-        $this->db->where('publish', '1');
-        $this->db->order_by('id', 'desc');
-        $this->db->limit($limit);
-        return $this->db->get('slide')->result();
-    }
+    
 }
 
 /* End of file Home_model.php */

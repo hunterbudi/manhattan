@@ -12,21 +12,24 @@ class Home extends MY_Controller {
             $this->load->model('home_model');
             $slide = $this->home_model->slide(4);
             $berita = $this->home_model->berita(4);
-            $kiriman = $this->home_model->kiriman('kiriman_pos',5);
+            $penumpang = $this->home_model->personal('penumpang_sarkut',5);
+            $kiriman = $this->home_model->personal('kiriman_pos',5);
+            $pelintas = $this->home_model->personal('pelintas_batas',5);
             $pengumuman = $this->home_model->pengumuman(4);
             $pengumuman_alert = $this->home_model->pengumuman_alert(4);
             $pengumuman_alert_count = $this->home_model->pengumuman_alert_count();
             $wbc = $this->home_model->wbc();
-            $slide = $this->home_model->slide();
 
             $data = array(
-                'kiriman' => $kiriman,
+                'slide' => $slide,
                 'berita' => $berita,
+                'penumpang' => $penumpang,
+                'kiriman' => $kiriman,
+                'pelintas' => $pelintas,
                 'pengumuman' => $pengumuman,
                 'pengumuman_alert' => $pengumuman_alert,
                 'pengumuman_alert_count' => $pengumuman_alert_count,
                 'wbc' => $wbc,
-                'slide' => $slide,
             );
 
             $this->load->view('home',$data);
