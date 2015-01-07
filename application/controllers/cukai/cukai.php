@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Lartas extends MY_Controller {
+class Cukai extends MY_Controller {
     
         public function __construct() 
         {
@@ -9,16 +9,16 @@ class Lartas extends MY_Controller {
 
 	public function index()
 	{
-            $this->load->model('informasi_model');
-            $rows = $this->informasi_model->get_by_jenis('lartas');
+            $this->load->model('cukai_model');
+            $rows = $this->cukai_model->get_by_jenis('cukai');
             
             $data = array(
                 'rows' => $rows
             );
             
-            $this->load->view('informasi/lartas',$data);
+            $this->load->view('cukai/cukai',$data);
 	}
 }
 
-/* End of file lartas.php */
-/* Location: ./application/controllers/administrasi/lartas.php */
+/* End of file cukai.php */
+/* Location: ./application/controllers/cukai/cukai.php */

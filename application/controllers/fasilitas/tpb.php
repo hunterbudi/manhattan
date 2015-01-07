@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Lartas extends MY_Controller {
+class Tpb extends MY_Controller {
     
         public function __construct() 
         {
@@ -9,16 +9,16 @@ class Lartas extends MY_Controller {
 
 	public function index()
 	{
-            $this->load->model('informasi_model');
-            $rows = $this->informasi_model->get_by_jenis('lartas');
+            $this->load->model('fasilitas_model');
+            $rows = $this->fasilitas_model->get_by_jenis('tpb');
             
             $data = array(
                 'rows' => $rows
             );
             
-            $this->load->view('informasi/lartas',$data);
+            $this->load->view('fasilitas/tpb',$data);
 	}
 }
 
-/* End of file lartas.php */
-/* Location: ./application/controllers/administrasi/lartas.php */
+/* End of file tpb.php */
+/* Location: ./application/controllers/fasilitas/tpb.php */

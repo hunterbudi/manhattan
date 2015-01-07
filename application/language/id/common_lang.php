@@ -55,8 +55,9 @@ $lang['nav_statistik'] = "Data dan Statistik";
 $lang['nav_berita'] = "Berita";
 
 //navigasi tab personal
-$lang['nav_penumpang'] = "Barang Penumpang";
-$lang['nav_kiriman'] = "Barang Kiriman";
+$lang['nav_personal'] = "Barang Personal";
+$lang['nav_penumpang_sarkut'] = "Barang Penumpang";
+$lang['nav_kiriman_pos'] = "Barang Kiriman";
 $lang['nav_pelintas'] = "Barang Pelintas Batas";
 
 // navigasi tab pengumuman
@@ -113,7 +114,14 @@ $lang['beranda_pengumuman_penting'] = "Pengumuman Penting !"; // tambahkan tanda
 $lang['beranda_eselon1'] = "Eselon I Kementerian Keuangan";
 $lang['beranda_kiriman_pos'] = "Barang Penumpang dan Paket Pos";
 
+//pabean
+$lang['download_search'] = "Cari File Download";
+$lang['download_tidak_ada'] = "Maaf, tidak ditemukan file download dengan kata kunci";
+$lang['pabean_dowload_detail'] = "Klik untuk selengkapnya...";
 
+//faq
+$lang['faq_search'] = "Cari FAQ";
+$lang['faq_tidak_ada'] = "Maaf, tidak ditemukan faq dengan kata kunci";
 
 //navigasi berita
 //$lang['nav_berita_utama'] = "Berita";
@@ -154,9 +162,7 @@ $lang['beranda_kiriman_pos'] = "Barang Penumpang dan Paket Pos";
 ////wbc
 //$lang['wbc_edisi'] = "Edisi";
 //
-////faq
-//$lang['faq_search'] = "Cari FAQ";
-//$lang['faq_tidak_ada'] = "Maaf, tidak ditemukan faq dengan kata kunci";
+
 //
 ////administrasi
 //$lang['download_search'] = "Cari File Download";

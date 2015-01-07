@@ -145,7 +145,7 @@
                                     
                                     <!--cukai-->
                                     <li>
-                                        <a href="<?php echo site_url('cukai'); ?>" class="dropdown-toggle"> <?php echo $this->lang->line('nav_cukai'); ?> </a>
+                                        <a href="<?php echo site_url('cukai/cukai'); ?>" class="dropdown-toggle"> <?php echo $this->lang->line('nav_cukai'); ?> </a>
                                     </li>
                                     
                                     <!--fasilitas-->
@@ -180,7 +180,7 @@
                                     
                                     <!-- statistik -->
                                     <li class="dropdown">
-                                        <a href="<?php echo site_url('statistik'); ?>" class="dropdown-toggle"> <?php echo $this->lang->line('nav_statistik'); ?> </a>
+                                        <a href="<?php echo site_url('statistik/statistik'); ?>" class="dropdown-toggle"> <?php echo $this->lang->line('nav_statistik'); ?> </a>
                                     </li>
 
                                   </ul>

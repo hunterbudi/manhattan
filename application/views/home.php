@@ -193,8 +193,8 @@
                 <div class="row-fluid">
                     <div class="span6">
                         <ul class="nav nav-tabs" id="myTab">
-                            <li class="active"><a href="#home"><i class="fa fa-suitcase"></i> <?php echo $this->lang->line('nav_penumpang'); ?></a></li>
-                            <li><a href="#profile"><i class="fa fa-cube"></i> <?php echo $this->lang->line('nav_kiriman'); ?></a></li>
+                            <li class="active"><a href="#home"><i class="fa fa-suitcase"></i> <?php echo $this->lang->line('nav_penumpang_sarkut'); ?></a></li>
+                            <li><a href="#profile"><i class="fa fa-cube"></i> <?php echo $this->lang->line('nav_kiriman_pos'); ?></a></li>
                             <li><a href="#messages"><i class="fa fa-car"></i> <?php echo $this->lang->line('nav_pelintas'); ?></a></li>
                         </ul>
                         <div id="operplow2" style="height: 210px; overflow: auto">
@@ -206,7 +206,7 @@
                                         $judul = 'judul_'.$this->session->userdata('language');
                                         ?>
                                         <li>
-                                            <a style="color: #444" href="<?php echo site_url('kiriman/kiriman_pos'); ?>">
+                                            <a style="color: #444" href="<?php echo site_url('personal/penumpang_sarkut'); ?>">
                                                 <?php echo $row_penumpang->$judul ?>
                                             </a>
                                         </li>
@@ -222,7 +222,7 @@
                                         $judul = 'judul_'.$this->session->userdata('language');
                                         ?>
                                         <li>
-                                            <a style="color: #444" href="<?php echo site_url('kiriman/kiriman_pos'); ?>">
+                                            <a style="color: #444" href="<?php echo site_url('personal/kiriman_pos'); ?>">
                                                 <?php echo $row_kiriman->$judul ?>
                                             </a>
                                         </li>
@@ -238,7 +238,7 @@
                                         $judul = 'judul_'.$this->session->userdata('language');
                                         ?>
                                         <li>
-                                            <a style="color: #444" href="<?php echo site_url('kiriman/kiriman_pos'); ?>">
+                                            <a style="color: #444" href="<?php echo site_url('personal/pelintas'); ?>">
                                                 <?php echo $row_pelintas->$judul ?>
                                             </a>
                                         </li>
@@ -255,24 +255,24 @@
                         <div class="judul4"><strong><i class="fa fa-info-circle"></i> <?php echo $this->lang->line('nav_informasi'); ?></strong></div>
                         <div class="isi_judsul4">
                             <ul class="mylist">
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_faq'); ?></a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_lartas'); ?></a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_ppjk'); ?></a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_ppid'); ?></a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_link'); ?></a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_download'); ?></a></li>
+                                <li><a href="<?php echo site_url('informasi/faq'); ?>"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_faq'); ?></a></li>
+                                <li><a href="<?php echo site_url('informasi/lartas'); ?>"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_lartas'); ?></a></li>
+                                <li><a href="<?php echo site_url('informasi/ppjk'); ?>"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_ppjk'); ?></a></li>
+                                <li><a href="<?php echo site_url('informasi/ppid'); ?>"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_ppid'); ?></a></li>
+                                <li><a href="<?php echo site_url('informasi/link'); ?>"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_link'); ?></a></li>
+                                <li><a href="<?php echo site_url('informasi/download'); ?>"><i class="fa fa-angle-double-right"></i> <?php echo $this->lang->line('nav_download'); ?></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="span2">
                         <div class="judul4"><strong><i class="fa fa-list-alt"></i> <?php echo $this->lang->line('nav_wbc'); ?></strong></div>
                         <div class="text-center isi_juddul4">
-                            <a href="<?php echo site_url('berita/wbc'); ?>">
+                            <a href="<?php echo site_url('wbc/wbc'); ?>">
                                 <div class="wbc_box">
                                     <?php 
                                     $foto = 'upload/wbc/foto/'.$wbc->foto;
                                     ?>
-                                    <a href="<?php echo site_url('berita/wbc'); ?>">
+                                    <a href="<?php echo site_url('wbc/wbc'); ?>">
                                         <img width="160px" src="<?php echo base_url($foto); ?>" title="<?php echo $this->lang->line('nav_wbc'); ?>"/>
                                     </a>
                                 </div>
