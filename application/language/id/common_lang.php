@@ -60,9 +60,6 @@ $lang['nav_penumpang_sarkut'] = "Barang Penumpang";
 $lang['nav_kiriman_pos'] = "Barang Kiriman";
 $lang['nav_pelintas'] = "Barang Pelintas Batas";
 
-// navigasi tab pengumuman
-$lang['nav_pengumuman'] = "Pengumuman";
-
 //navigasi tab informasi
 $lang['nav_informasi'] = "Informasi";
 $lang['nav_faq'] = "FAQ";
@@ -74,6 +71,12 @@ $lang['nav_download'] = "Download";
 
 // tab wbc
 $lang['nav_wbc'] = "Warta Bea Cukai";
+
+// navigasi tab pengumuman
+$lang['nav_pengumuman'] = "Pengumuman";
+
+// navigasi tab shortcut
+$lang['nav_shortcut'] = "Shortcut Aplikasi dan Layanan";
 
 //footer navigasi alamat
 $lang['nav_kantor_pusat'] = "Kantor Pusat";

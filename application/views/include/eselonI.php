@@ -1,8 +1,10 @@
-                <div class="row-fluid judul4">
-                    <div><strong><i class="fa fa-institution"></i> <?php echo $this->lang->line('beranda_eselon1'); ?></strong></div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="judul4" ><strong><i class="fa fa-institution"></i> <?php echo $this->lang->line('beranda_eselon1'); ?></strong></div>
+                    </div>
                 </div>
-                <div class="row-fluid isi_judul4">
-                    <div>
+                <div class="row-fluid">
+                    <div class="isi_judul4">
                         <ul id="eselon1"> 
                             <li><a target="_blank" href="http://www.fiskal.kemenkeu.go.id/"><img src="<?php echo base_url('asset/image/eseloni/bkf.png'); ?>" /></a></li>  	
                             <li><a target="_blank" href="http://www.bppk.kemenkeu.go.id"><img src="<?php echo base_url('asset/image/eseloni/bppk.png'); ?>" /></a></li>  	

@@ -39,3 +39,4 @@
 
         <!--custom style-->
         <link href="<?php echo base_url('asset/css/custom.css'); ?>" rel="stylesheet" />
+        <link href="<?php echo base_url('asset/css/sass-compiled.css'); ?>" rel="stylesheet" />
