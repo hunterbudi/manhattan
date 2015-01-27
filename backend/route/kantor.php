@@ -86,10 +86,17 @@
             $profil = $_POST['profil'];
             $koordinat = $_POST['koordinat'];
             $nama_kanwil = $_POST['nama_kanwil'];
-
-
-                $query = "INSERT INTO kantor_kppbc (nama,profil,koordinat,nama_kanwil)"
-                        . " VALUES ('$nama','$profil','$koordinat','$nama_kanwil')";
+                
+                //cek dan ambil id kanwil
+                $sql_kanwil = mysql_query("SELECT * from kantor_kanwil  where nama='$nama_kanwil'");
+                $data_kanwil=  mysql_fetch_array($sql_kanwil);
+                echo $tot_kanwil = mysql_num_rows($sql_kanwil);
+                if($tot_kanwil > '0'){
+                    echo $idkanwil=$data_kanwil['id'];
+                }
+                
+                $query = "INSERT INTO kantor_kppbc (nama,profil,koordinat,id_kanwil)"
+                        . " VALUES ('$nama','$profil','$koordinat','$idkanwil')";
                 $sql = mysql_query($query);
 
                 if ($sql) {
@@ -116,6 +123,11 @@
                 $no = 1;
                 while ($r = mysql_fetch_array($sql)) {
                     $id = $r['id'];
+                    $id_kanwil = $r['id_kanwil'];
+                    //cek dan ambil id kanwil
+                    $sql_kanwil = mysql_query("SELECT * from kantor_kanwil  where id='$id_kanwil'");
+                    $data_kanwil=  mysql_fetch_array($sql_kanwil);
+                    $nama_kanwil=$data_kanwil['nama'];
                     ?>
 
                     <tr align='center'>
@@ -126,7 +138,7 @@
                                 <div class='box-body'><?php echo $r['profil'] ?></div>
                             </div>
                         </td>
-                        <td class='odd gradeX'><?php echo $r['nama_kanwil'] ?></td>
+                        <td class='odd gradeX'><?php echo $nama_kanwil ?></td>
                         <td class='odd gradeX'><?php echo $r['koordinat'] ?></td>
                         <td class='odd gradeX'>
                             <span> <a href=?module=kantor_edit&id=<?php echo $id ?> title='edit' class='btn btn-outline btn-primary btn-xs '> <i class='fa fa-edit'></i></a></span>
